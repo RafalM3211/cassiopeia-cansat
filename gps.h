@@ -14,6 +14,6 @@ typedef struct GNRMC{
   uint8_t Velocity;
 };
 
-struct GNRMC L76X_Gat_GNRMC();
+struct GNRMC getGpsData();
 
 #endif

@@ -33,7 +33,7 @@ void uart_receiveString(char *data, uint16_t Num){
 char buff_t[800]={0};
 
 
-struct GNRMC L76X_Gat_GNRMC(){
+struct GNRMC getGpsData(){
     struct GNRMC gps;
     UWORD add = 0, word = 0, z = 0, i = 0;
     UDOUBLE Time = 0, latitude = 0, longitude = 0, velocity = 0;
