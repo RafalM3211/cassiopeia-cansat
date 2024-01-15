@@ -7,6 +7,7 @@ void setup()
   Serial.begin(9600);
   SerialUSB.println("\n cassiopeia cansat");
 
+  initPressureSensor();
   initCo2Sensor();
   initHumiditySensor();
 }
@@ -22,6 +23,13 @@ void loop()
   SerialUSB.print("humidity: ");
   SerialUSB.println(humidity);
 
+  float temperature=getTemperature();
+  SerialUSB.print("temperature: ");
+  SerialUSB.println(temperature);
+
+  float pressure=getPressure();
+  SerialUSB.print("pressure: ");
+  SerialUSB.println(pressure);
 
   struct GNRMC gps;
   gps = getGpsData();
