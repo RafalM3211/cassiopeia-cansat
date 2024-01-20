@@ -10,6 +10,7 @@ void setup()
   initPressureSensor();
   initCo2Sensor();
   initHumiditySensor();
+  initOzoneSensor();
 }
  
  
@@ -30,6 +31,10 @@ void loop()
   float pressure=getPressure();
   SerialUSB.print("pressure: ");
   SerialUSB.println(pressure);
+
+  int16_t ozoneConcentration=getOzoneConcentration();
+  SerialUSB.print("ozone concentration: ");
+  SerialUSB.println(ozoneConcentration);
 
   struct GNRMC gps;
   gps = getGpsData();
