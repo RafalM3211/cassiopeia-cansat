@@ -13,7 +13,7 @@ uint8_t uart_receiveByte(){
   return Serial.read();
 }
 
-void uart_receiveString(char *data, uint16_t Num){  
+void uart_receiveString(char *data, uint16_t Num){
   uint16_t i;
   while(1){
     if(Serial.available()){

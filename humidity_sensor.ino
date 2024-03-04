@@ -4,7 +4,8 @@
 
 #include "DHT.h"
 
-#define DHTPIN 5 
+
+#define DHTPIN 9
 
 //#define DHTTYPE DHT11   // DHT 11
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321

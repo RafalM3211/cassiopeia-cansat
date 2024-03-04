@@ -1,9 +1,7 @@
-#include <Wire.h>
 #include "gps.h"
 
 void setup()
 {
-  Wire.begin();
   Serial.begin(9600);
   SerialUSB.println("\n cassiopeia cansat");
 

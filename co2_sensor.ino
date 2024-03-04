@@ -1,4 +1,3 @@
-
 #include "sensirion_common.h"
 #include "sgp30.h"
 
@@ -30,5 +29,7 @@ void initCo2Sensor(){
     }
     err = sgp_iaq_init();
 }
+
+
 
 
