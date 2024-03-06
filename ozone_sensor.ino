@@ -17,7 +17,7 @@ void initOzoneSensor(){
 }
 
 
-int16_t getOzoneConcentration(){
+String getOzoneConcentration(){
   int16_t ozoneConcentration = Ozone.readOzoneData(COLLECT_NUMBER);
-  return ozoneConcentration;
+  return String(ozoneConcentration);
 }

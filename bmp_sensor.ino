@@ -1,4 +1,5 @@
 #include <CanSatKit.h>
+#include <math.h>
 
 using namespace CanSatKit;
 
@@ -10,16 +11,16 @@ void initPressureSensor(){
   bmp.setOversampling(16);
 }
 
-float getTemperature(){
+String getTemperature(){
   double temperature, pressure;
   bmp.measureTemperatureAndPressure(temperature, pressure);
 
-  return (float)temperature;
+  return String(temperature);
 }
 
-float getPressure(){
+String getPressure(){
   double temperature, pressure;
   bmp.measureTemperatureAndPressure(temperature, pressure);
 
-  return (float)pressure;
+  return String(pressure);
 }

@@ -2,15 +2,16 @@
 #include "sgp30.h"
 
 
-int16_t getCo2(){
+String getCo2(){
       s16 err = 0;
     u16 tvoc_ppb, co2_eq_ppm;
     err = sgp_measure_iaq_blocking_read(&tvoc_ppb, &co2_eq_ppm);
     if (err != STATUS_OK) {
         SerialUSB.println("error reading IAQ values\n");
+        return "E";
     }
 
-    return co2_eq_ppm;
+    return String(co2_eq_ppm);
 }
 
 void initCo2Sensor(){
