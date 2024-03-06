@@ -20,7 +20,7 @@ void initHumiditySensor(){
 String getHumidity(){
   float humidity = dht.readHumidity();
   if (isnan(humidity)) {
-    SerialUSB.println("Failed to read from DHT sensor!");
+    SerialUSB.print("\n Failed to read from DHT sensor!");
     return "E";
   }
   return String(humidity);

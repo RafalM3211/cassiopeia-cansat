@@ -38,7 +38,7 @@ struct GNRMC getGpsData(){
     UWORD add = 0, word = 0, z = 0, i = 0;
     UDOUBLE Time = 0, latitude = 0, longitude = 0, velocity = 0;
 
-    gps.Status = 0;
+    gps.Status = 'E';
 
 		gps.Time_H = 0;
     gps.Time_M = 0;
@@ -76,9 +76,9 @@ struct GNRMC getGpsData(){
                      //A indicates that it has been positioned
                      //V indicates that there is no positioning.
                         if(buff_t[add+z+1] == 'A'){
-                             gps.Status = 1;
+                             gps.Status = '1';
                         }else{
-                             gps.Status = 0;
+                             gps.Status = 'E';
                         }
                     }else if(word == 3){
                         latitude = 0;
