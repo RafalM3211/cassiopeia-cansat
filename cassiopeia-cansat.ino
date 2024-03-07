@@ -69,8 +69,9 @@ void loop()
   String ozoneConcentration=getOzoneConcentration();
   data+=ozoneConcentration;
   SerialUSB.print("\n ozone concentration: ");
-  SerialUSB.print(ozoneConcentration);
+  SerialUSB.print(ozoneConcentration + "\n");
 
   transmit(data);
+  writeToSD(data);
   delay(500);
 }
