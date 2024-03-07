@@ -3,14 +3,17 @@
 
 void initSD(){
   if (!SD.begin(11)) {
-    Serial.println("Card failed, or not present");
+    SerialUSB.println("Card failed, or not present");
+  }
+  else{
+    SerialUSB.println("Card initialized");
   }
 }
 
 void writeToSD(String data){
   File dataFile = SD.open("data.txt", FILE_WRITE);
   if(dataFile){
-    dataFile.println(data);
+    dataFile.println(data+" | eof + \n");
     dataFile.close();
   }
   else {
