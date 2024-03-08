@@ -1,6 +1,6 @@
 #include "gps.h"
 
-#define LOG_MODE false  //change to true to enable logging sensor data
+#define LOG_MODE true  //change to true to enable logging sensor data
 
 void setup()
 {
@@ -40,6 +40,9 @@ void loop()
   String pressure=getPressure();
   data+=pressure+";";
 
+  String altitude=getAltitude();
+  data+=altitude+";";
+
   String co2=getCo2();
   data+=co2+";";
 
@@ -73,6 +76,9 @@ void loop()
 
     SerialUSB.print("\n pressure: ");
     SerialUSB.print(pressure);
+
+    SerialUSB.print("\n altitude: ");
+    SerialUSB.print(altitude);
 
     SerialUSB.print("\n co2: ");
     SerialUSB.print(co2);

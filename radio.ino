@@ -19,6 +19,7 @@ Frame frame;
 
 void initRadio(){
   radio.begin();
+  radio.disable_debug();
 }
 
 void transmit(String data){
