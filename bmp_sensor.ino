@@ -27,7 +27,7 @@ String getPressure(){
 }
 
 String getAltitude(){
-  float seaLevelhPa=1020;  //TO BEDZIE TRZEBA ZMIENIAC W ZALEZNOSCI OD TEGO JAKIE JEST CISNIENIE NAD MORZEM
+  float seaLevelhPa=1016;  //TO BEDZIE TRZEBA ZMIENIAC W ZALEZNOSCI OD TEGO JAKIE JEST CISNIENIE NAD MORZEM
 
   double temperature, pressure;
   bmp.measureTemperatureAndPressure(temperature, pressure);

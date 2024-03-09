@@ -1,6 +1,6 @@
 #include "gps.h"
 
-#define LOG_MODE true  //change to true to enable logging sensor data
+#define LOG_MODE false  //change to true to enable logging sensor data
 
 void setup()
 {
@@ -13,6 +13,7 @@ void setup()
   initOzoneSensor();
   initRadio();
   initSD();
+  initRecovery();
 } 
 
 
@@ -45,6 +46,9 @@ void loop()
 
   String co2=getCo2();
   data+=co2+";";
+
+  String methane=getMethane();
+  data+=methane+";";
 
   String humidity=getHumidity();
   data+=humidity+";";
@@ -83,6 +87,9 @@ void loop()
     SerialUSB.print("\n co2: ");
     SerialUSB.print(co2);
 
+    SerialUSB.print("\n methane: ");
+    SerialUSB.print(methane);
+
     SerialUSB.print("\n humidity: ");
     SerialUSB.print(humidity);
 
@@ -92,5 +99,6 @@ void loop()
 
   transmit(data);
   writeToSD(data);
+  checkAndActivateRecovery(altitude);
   delay(500);
 }
