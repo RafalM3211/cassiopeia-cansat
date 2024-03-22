@@ -2,9 +2,12 @@
 
 #define LOG_MODE false  //change to true to enable logging sensor data
 
+
+
 void setup()
 {
   Serial.begin(9600);
+  SerialUSB.begin(9600);
   SerialUSB.print("\n cassiopeia cansat");
 
   initPressureSensor();
@@ -12,8 +15,9 @@ void setup()
   initHumiditySensor();
   initOzoneSensor();
   initRadio();
+
   initSD();
-  initRecovery();
+  //initRecovery();
 } 
 
 
@@ -97,8 +101,11 @@ void loop()
     SerialUSB.print(ozoneConcentration + "\n");
   }
 
+  SerialUSB.println(data);
   transmit(data);
-  writeToSD(data);
-  checkAndActivateRecovery(altitude);
+
+
+  writeToSD("a");
+  //checkAndActivateRecovery("232");
   delay(500);
 }

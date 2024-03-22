@@ -2,9 +2,6 @@
 
 using namespace CanSatKit;
 
-int counter = 1;
-bool led_state = false;
-const int led_pin = 13;
 
 Radio radio(Pins::Radio::ChipSelect,
             Pins::Radio::DIO0,
