@@ -10,10 +10,10 @@ void initSD(){
   }
 }
 
-void writeToSD(String data){
+void writeToSD(String sdData){
   File dataFile = SD.open("data.txt", FILE_WRITE);
   if(dataFile){
-    dataFile.println(data+" | eof + \n");
+    dataFile.println(sdData+"\n");
     dataFile.close();
   }
   else {

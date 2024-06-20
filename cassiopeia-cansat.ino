@@ -17,13 +17,15 @@ void setup()
   initRadio();
 
   initSD();
-  //initRecovery();
+  initRecovery();
 } 
 
 
 void loop()
 {
+
   String data="";
+  String gpsData="";
 
   struct GNRMC gps;
   gps = getGpsData();
@@ -37,6 +39,7 @@ void loop()
   data+=String(gps.Lon)+";";
   data+=String(gps.Velocity)+";";
 
+
   //sensors
   
   String temperature=getTemperature();
@@ -47,6 +50,8 @@ void loop()
 
   String altitude=getAltitude();
   data+=altitude+";";
+
+
 
   String co2=getCo2();
   data+=co2+";";
@@ -102,10 +107,9 @@ void loop()
   }
 
   SerialUSB.println(data);
-  transmit(data);
+  transmit(gpsData);
 
-
-  writeToSD("a");
-  //checkAndActivateRecovery("232");
+  writeToSD(data);
+  checkAndActivateRecovery(altitude);
   delay(500);
 }

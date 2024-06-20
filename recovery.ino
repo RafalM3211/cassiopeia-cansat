@@ -1,11 +1,12 @@
-/* #define LANDING_SENSOR_PIN 8 //PIN TO DO
-#define BUZZ_PIN 8
+#define LANDING_SENSOR_PIN 8 //PIN TO DO
+#define BUZZ_PIN 13
 
 bool isWatching=false;
 
 void initRecovery(){
   pinMode(LANDING_SENSOR_PIN, INPUT);
   pinMode(BUZZ_PIN, OUTPUT);
+  digitalWrite(BUZZ_PIN, LOW); //buzz pin is also led pin - we turn it off to reduce battery usage
 }
 
 void checkAndActivateRecovery(String altitude){
@@ -14,7 +15,6 @@ void checkAndActivateRecovery(String altitude){
   }
 
   bool isOnGround=digitalRead(LANDING_SENSOR_PIN);
-  SerialUSB.print(isOnGround);
   if(isOnGround&isWatching){
     play();
   }
@@ -93,4 +93,4 @@ void play(){
   noteFis(222);
   noteD(222);
   noteE(222);
-} */
+}
